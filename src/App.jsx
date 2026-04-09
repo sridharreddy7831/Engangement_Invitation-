@@ -47,8 +47,8 @@ function App() {
   const [hasBlasted, setHasBlasted] = useState(false);
 
   useMotionValueEvent(smoothProgress, "change", (latest) => {
-    // When scroll reaches very bottom, blast confetti
-    if (latest > 0.99 && !hasBlasted) {
+    // When scroll reaches the point where names are revealing, blast confetti
+    if (latest > 0.92 && !hasBlasted) {
       setHasBlasted(true);
       
       const duration = 4000;
@@ -91,7 +91,7 @@ function App() {
       };
       frame();
 
-    } else if (latest < 0.90) {
+    } else if (latest < 0.85) {
       // Reset if user scrolls up slightly so it can blast again
       setHasBlasted(false);
     }
